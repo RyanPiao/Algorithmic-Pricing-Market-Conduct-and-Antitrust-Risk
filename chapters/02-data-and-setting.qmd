@@ -18,7 +18,20 @@ We use publicly available data from Inside Airbnb (insideairbnb.com), a communit
 
 ## Sample Construction
 
-We construct a listing-day panel for eight major U.S. cities: Austin, Boston, Chicago, Los Angeles, New York City, San Francisco, Seattle, and Washington, DC. The data are sourced from merged city files on an external drive, covering the 2022--2023 period.
+We construct a listing-day panel for eight major U.S. cities that span a range of short-term rental regulatory environments and market structures:
+
+| City | Listings | Regulatory environment | Market character |
+|---|---:|---|---|
+| Los Angeles | 44,543 | Registration required; hosted rentals only in primary residence | Large, tourist-heavy |
+| New York City | 37,983 | Strict: Local Law 18 (2023) requires registration, caps at 2 guests | Highly regulated |
+| Austin | 14,849 | Moderate: STR licenses, zoning restrictions | Festival-driven demand |
+| Chicago | 8,528 | Licensed; prohibited in some zones | Mid-size urban |
+| San Francisco | 7,400 | Strict: 90-night cap for unhosted rentals | Supply-constrained |
+| Seattle | 6,823 | Licensed; platform accountability ordinance | Tech-city demand |
+| Washington, DC | 6,698 | Licensed; 90-day cap for non-primary residence | Government/tourism |
+| Boston | 4,032 | Strict: registration, owner-occupancy preferred | Small, regulated |
+
+The cities vary substantially in market size (4,032 to 44,543 listings), regulatory stringency (Austin permissive, NYC/SF strict), and demand composition (festival-driven Austin, government-driven DC, tech-driven Seattle). This heterogeneity is a feature of the design: if algorithmic pricing effects depend on local market conditions, the eight-city sample spans a meaningful range. The data are sourced from Inside Airbnb, covering the 2022--2023 period.
 
 **Treatment cutoff.** The common cutoff date is September 1, 2023, corresponding to the official rollout of the 2023 Summer Release pricing tools. The running variable is days from this cutoff ($r_{it} = \text{date}_t - \text{Sep 1, 2023}$).
 

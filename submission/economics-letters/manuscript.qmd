@@ -27,7 +27,7 @@ format:
       - margin=1in
     fontsize: 12pt
     linestretch: 2
-    keep-tex: false
+    keep-tex: true
     include-in-header:
       text: |
         \usepackage{setspace}
