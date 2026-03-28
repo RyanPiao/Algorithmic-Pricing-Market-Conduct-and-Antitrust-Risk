@@ -1,0 +1,47 @@
+{
+  "sign_test": {
+    "n_positive": 8,
+    "n_total": 8,
+    "p_one_sided": 0.0039,
+    "p_two_sided": 0.0078
+  },
+  "city_ttest": {
+    "mean": 0.018388,
+    "sd": 0.017112,
+    "se": 0.00605,
+    "t": 3.039,
+    "p": 0.0189,
+    "ci_lower": 0.004082,
+    "ci_upper": 0.032693
+  },
+  "wilcoxon": {
+    "w": 0.0,
+    "p": 0.0078
+  },
+  "bounding": {
+    "rdd_lower": 0.0051,
+    "rdd_upper": 0.0193,
+    "did": -0.0054
+  },
+  "assad_comparison": {
+    "our_itt": 0.0067,
+    "adoption": 0.22,
+    "implied_tot": 0.0305,
+    "assad_tot": 0.38,
+    "ratio": 12.5
+  },
+  "aggregate_harm": {
+    "low_m": 50,
+    "high_m": 190
+  },
+  "city_estimates": {
+    "austin": 0.0112,
+    "boston": 0.0188,
+    "chicago": 0.0556,
+    "los-angeles": 0.0006,
+    "new-york-city": 0.0095,
+    "san-francisco": 0.0092,
+    "seattle": 0.0288,
+    "washington-dc": 0.0134
+  }
+}
