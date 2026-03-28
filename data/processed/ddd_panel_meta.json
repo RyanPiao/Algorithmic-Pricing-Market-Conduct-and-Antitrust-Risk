@@ -1,0 +1,14 @@
+{
+  "n_obs": 19048478,
+  "n_listings": 94832,
+  "n_cities": 8,
+  "week_range": [
+    38,
+    52
+  ],
+  "oct1_week": 40,
+  "obs_2022": 9000760,
+  "obs_2023": 10047718,
+  "mean_log_price_2022": 5.017537,
+  "mean_log_price_2023": 5.023822
+}

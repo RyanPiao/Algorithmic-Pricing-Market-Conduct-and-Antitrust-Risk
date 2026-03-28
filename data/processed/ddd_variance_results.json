@@ -1,0 +1,99 @@
+{
+  "rolling_var_did": [
+    {
+      "label": "7-day Var(log price)",
+      "coef": -0.000796,
+      "se": 0.000118,
+      "ci_lower": -0.001028,
+      "ci_upper": -0.000564,
+      "pval": 0.0,
+      "n_obs": 18763982,
+      "status": "ok"
+    },
+    {
+      "label": "14-day Var(log price)",
+      "coef": -0.000842,
+      "se": 0.000128,
+      "ci_lower": -0.001094,
+      "ci_upper": -0.000591,
+      "pval": 0.0,
+      "n_obs": 18479486,
+      "status": "ok"
+    }
+  ],
+  "paired_test": {
+    "mean_var_2022": 0.023092,
+    "mean_var_2023": 0.019144,
+    "mean_diff": -0.003948,
+    "se_diff": 0.000293,
+    "t_stat": -13.48,
+    "pval": 0.0,
+    "n_listings": 92549
+  },
+  "city_variance": [
+    {
+      "city": "austin",
+      "var_2022": 0.056435,
+      "var_2023": 0.05106,
+      "diff": -0.005375,
+      "pct_change": -9.5,
+      "n_listings": 10768
+    },
+    {
+      "city": "boston",
+      "var_2022": 0.035748,
+      "var_2023": 0.035208,
+      "diff": -0.00054,
+      "pct_change": -1.5,
+      "n_listings": 2710
+    },
+    {
+      "city": "chicago",
+      "var_2022": 0.055716,
+      "var_2023": 0.037834,
+      "diff": -0.017882,
+      "pct_change": -32.1,
+      "n_listings": 5310
+    },
+    {
+      "city": "los-angeles",
+      "var_2022": 0.015542,
+      "var_2023": 0.009796,
+      "diff": -0.005747,
+      "pct_change": -37.0,
+      "n_listings": 30671
+    },
+    {
+      "city": "new-york-city",
+      "var_2022": 0.012454,
+      "var_2023": 0.012803,
+      "diff": 0.000349,
+      "pct_change": 2.8,
+      "n_listings": 28615
+    },
+    {
+      "city": "san-francisco",
+      "var_2022": 0.02016,
+      "var_2023": 0.013322,
+      "diff": -0.006839,
+      "pct_change": -33.9,
+      "n_listings": 5672
+    },
+    {
+      "city": "seattle",
+      "var_2022": 0.023358,
+      "var_2023": 0.019973,
+      "diff": -0.003385,
+      "pct_change": -14.5,
+      "n_listings": 4266
+    },
+    {
+      "city": "washington-dc",
+      "var_2022": 0.019761,
+      "var_2023": 0.021622,
+      "diff": 0.00186,
+      "pct_change": 9.4,
+      "n_listings": 4537
+    }
+  ]
+}

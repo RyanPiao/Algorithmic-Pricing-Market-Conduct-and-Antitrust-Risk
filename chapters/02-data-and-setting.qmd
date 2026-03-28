@@ -1,0 +1,61 @@
+# Data and Setting
+
+## Institutional Background
+
+Airbnb introduced its first algorithmic pricing tool, "Price Tips," in June 2015 via the Aerosolve machine learning framework (Airbnb Engineering Blog, June 4, 2015). Five months later, on November 12, 2015, the company launched Smart Pricing at Airbnb Open in Paris, offering hosts automated nightly price recommendations based on local demand signals, seasonality, listing characteristics, and comparable listings [@ye2018customized]. Smart Pricing is opt-in: hosts toggle the feature on or off and set minimum and maximum price bounds within which the algorithm adjusts nightly rates (Airbnb Help Center, Article 1168). The algorithm's objective is to maximize booking probability weighted by price --- effectively maximizing platform revenue rather than host profit, since Airbnb collects a percentage-based service fee on each transaction [Airbnb Engineering Blog 2015; @foroughifar2024challenges].
+
+In its 2023 Summer Release, Airbnb substantially redesigned its pricing tools, introducing "Compare Similar Listings," enhanced pricing dashboards, and updated algorithmic recommendations. The redesigned tools entered beta on May 3, 2023, and were officially rolled out to all hosts on September 1, 2023. This platform-wide rollout provides our quasi-experimental treatment event: a discrete date after which all hosts on the platform had access to the updated algorithmic pricing toolkit.
+
+## Data Source
+
+We use publicly available data from Inside Airbnb (insideairbnb.com), a community project founded by Murray Cox in February 2015 that periodically scrapes Airbnb listing pages, calendar data, and review information. Governance of the project transferred to the Housing Justice Data Lab in 2023. Inside Airbnb data is released under a Creative Commons CC0 1.0 Universal license.
+
+**Calendar prices are forward-looking posted prices, not realized transaction prices.** Each scrape captures the nightly price a host has listed for each future date on their calendar (typically 365 days ahead). This price may differ from the price at which the night is ultimately booked, due to subsequent host adjustments, promotional discounts, or last-minute changes. We cannot observe the actual booking price or the timing of a booking relative to the check-in date. This data limitation is well-documented [@alsudais2021incorrect; Inside Airbnb Data Assumptions page] and shared by other studies using Inside Airbnb data [@huang2025pricing].
+
+**Calendar availability does not distinguish booked from host-blocked nights.** A night marked "unavailable" could reflect either a confirmed booking or a host decision to block the date [@alsudais2021incorrect]. This affects any interpretation of availability as a demand proxy but does not directly affect our price-level or price-variance outcomes.
+
+**Scraping cadence varies by city.** Inside Airbnb scrapes are approximately quarterly for the most recent year, with older vintages available via archive request. The exact scrape dates differ across cities and are not perfectly synchronized.
+
+## Sample Construction
+
+We construct a listing-day panel for eight major U.S. cities: Austin, Boston, Chicago, Los Angeles, New York City, San Francisco, Seattle, and Washington, DC. The data are sourced from merged city files on an external drive, covering the 2022--2023 period.
+
+**Treatment cutoff.** The common cutoff date is September 1, 2023, corresponding to the official rollout of the 2023 Summer Release pricing tools. The running variable is days from this cutoff ($r_{it} = \text{date}_t - \text{Sep 1, 2023}$).
+
+**Bandwidth windows.** We construct symmetric windows of ±30, ±45, ±60, and ±90 days around the cutoff. The estimation sample ranges from 7.5 million listing-day observations (±30 days) to 22.2 million (±90 days) across approximately 130,000 unique listings.
+
+**Price filtering.** We exclude observations with missing or zero prices and cap prices at \$10,000 per night to remove data entry errors. The outcome variable is $\log(\text{price\_usd})$.
+
+**Beta period.** The period from May 3 to August 31, 2023, is flagged as a beta period during which early-access hosts could use the redesigned tools. Observations in this window are included in wider bandwidths but fall on the pre-cutoff side of the running variable for the September 1 treatment date.
+
+## Key Variables
+
+| Variable | Definition | Role |
+|---|---|---|
+| `log_price` | Log of nightly listed price (USD) | Primary outcome |
+| `post_cutoff` | $\mathbf{1}[\text{date} \geq \text{Sep 1, 2023}]$ | Treatment indicator |
+| `days_from_cutoff` | Date minus Sep 1, 2023 (in days) | Running variable |
+| `accommodates` | Maximum guest capacity | Covariate |
+| `bedrooms` | Number of bedrooms | Covariate |
+| `bathrooms` | Number of bathrooms | Covariate |
+| `number_of_reviews` | Cumulative review count | Covariate |
+| `review_scores_rating` | Average review score | Covariate |
+| `host_is_superhost` | Superhost status indicator | Covariate |
+| `instant_bookable` | Instant booking enabled | Covariate |
+| `calculated_host_listings_count` | Host's total active listings | Covariate / heterogeneity |
+| `city_slug` | City identifier | Fixed effect |
+| `month`, `day_of_week`, `is_holiday` | Calendar variables | Seasonal controls |
+
+## Summary Statistics
+
+[Table: Summary statistics for the ±3-month estimation sample, reporting means, standard deviations, and percentiles for key variables. To be populated from the processed panel.]
+
+## Data Limitations
+
+Three limitations of the data warrant emphasis.
+
+First, the 2023 Summer Release was a platform-wide event affecting all hosts simultaneously. Unlike the original 2015 Smart Pricing rollout --- which was described as "rolled out progressively" (TechCrunch 2015) --- the 2023 redesign applies a common treatment date across all eight cities. This design provides a clean sharp RDD but sacrifices the cross-city timing variation that a staggered rollout would afford. The year-over-year DiD exploits temporal variation (2023 vs. 2022) as an alternative identification strategy.
+
+Second, we cannot directly observe whether individual hosts adopted the new pricing tools, engaged with the redesigned dashboard, or changed their pricing behavior in response to the update. Our ITT design estimates the market-level effect of making the tools available, not the effect of individual adoption. @foroughifar2024challenges document that only 22% of hosts adopted the original Smart Pricing tool; adoption of the 2023 redesign may differ.
+
+Third, Inside Airbnb data does not capture the full range of pricing tools available to hosts. Third-party revenue management tools (Beyond Pricing, PriceLabs, Wheelhouse) operate independently of Airbnb's platform tools and may confound the treatment effect if their usage changed around the September 2023 cutoff. We cannot identify or control for third-party tool adoption.

@@ -1,0 +1,15 @@
+{
+  "method": "two_stage_FE_absorption_plus_cross_fitted_ridge",
+  "stage1_fe": [
+    "city_month",
+    "day_of_week"
+  ],
+  "stage2_features": 16,
+  "k_folds": 5,
+  "seed": 42,
+  "n_obs": 22573179,
+  "r2_fe_only": 0.016895,
+  "r2_total": 0.454495,
+  "cutoff": "2023-09-01",
+  "window": "\u00b13m"
+}

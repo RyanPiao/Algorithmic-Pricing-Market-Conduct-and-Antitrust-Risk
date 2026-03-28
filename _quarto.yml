@@ -1,0 +1,32 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Algorithmic Pricing and Market Conduct: Evidence from Airbnb Smart Pricing"
+  author: "Richeng Piao"
+  date: today
+  chapters:
+    - index.qmd
+    - chapters/01-introduction.qmd
+    - chapters/02-data-and-setting.qmd
+    - chapters/03-empirical-strategy.qmd
+    - chapters/04-results.qmd
+    - chapters/05-related-work.qmd
+    - chapters/06-conclusion.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    number-sections: true
+    toc: true
+    toc-depth: 3
+  pdf:
+    documentclass: scrreprt
+    number-sections: true
+    toc: true
+    geometry:
+      - margin=1in
+    fontsize: 12pt

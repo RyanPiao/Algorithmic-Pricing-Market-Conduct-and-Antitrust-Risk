@@ -1,0 +1,7 @@
+## Abstract {.unnumbered}
+
+We study the market-level effects of Airbnb's redesigned algorithmic pricing tools across eight major U.S. cities. Using a sharp reduced-form regression discontinuity design exploiting the platform-wide September 2023 rollout, we estimate the intent-to-treat effect of algorithm availability on listing prices and price dispersion. The aggregate price-level effect is small and bandwidth-sensitive: the pooled ITT ranges from 1.9 percent at ±30 days to 0.5 percent at ±90 days --- an order of magnitude below the effects documented in oligopolistic markets. A balanced-panel specification and controls for simultaneous platform policy changes confirm that the result is not driven by compositional shifts or bundled treatments. The RDD finds increased within-listing price variance, but a year-over-year DiD yields the opposite sign, leaving the variance result's robustness uncertain. Pricing changes concentrate among hosts with high pre-existing pricing sophistication, a descriptive pattern consistent with technology-skill complementarity. Together with evidence of algorithmic collusion in gasoline duopolies [@assad2024algorithmic], these findings suggest that market structure mediates whether pricing algorithms raise prices or merely alter pricing patterns.
+
+**JEL codes**: L13, L41, L81, D43, C21
+
+**Keywords**: algorithmic pricing, price discrimination, regression discontinuity, platform markets, Airbnb, technology-skill complementarity

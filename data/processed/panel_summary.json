@@ -1,0 +1,110 @@
+{
+  "total_rows": 51555060,
+  "n_cities": 8,
+  "n_listings": 130873,
+  "date_range": [
+    "2022-09-07",
+    "2023-12-31"
+  ],
+  "cutoff": "2023-09-01",
+  "beta_date": "2023-05-03",
+  "cities": [
+    {
+      "city": "austin",
+      "rows": 5812105,
+      "listings": 14853,
+      "date_min": "2022-09-12",
+      "date_max": "2023-12-31",
+      "pre_rows": 4014629,
+      "post_rows": 1797476,
+      "mean_price": 296.66,
+      "median_price": 172.0
+    },
+    {
+      "city": "boston",
+      "rows": 1586559,
+      "listings": 4032,
+      "date_min": "2022-09-15",
+      "date_max": "2023-12-31",
+      "pre_rows": 1100918,
+      "post_rows": 485641,
+      "mean_price": 229.55,
+      "median_price": 175.0
+    },
+    {
+      "city": "chicago",
+      "rows": 3261011,
+      "listings": 8528,
+      "date_min": "2022-09-14",
+      "date_max": "2023-12-31",
+      "pre_rows": 2231944,
+      "post_rows": 1029067,
+      "mean_price": 202.53,
+      "median_price": 140.0
+    },
+    {
+      "city": "los-angeles",
+      "rows": 16952221,
+      "listings": 44547,
+      "date_min": "2022-09-09",
+      "date_max": "2023-12-31",
+      "pre_rows": 11537662,
+      "post_rows": 5414559,
+      "mean_price": 282.08,
+      "median_price": 150.0
+    },
+    {
+      "city": "new-york-city",
+      "rows": 15660839,
+      "listings": 37985,
+      "date_min": "2022-09-07",
+      "date_max": "2023-12-31",
+      "pre_rows": 11062294,
+      "post_rows": 4598545,
+      "mean_price": 198.77,
+      "median_price": 130.0
+    },
+    {
+      "city": "san-francisco",
+      "rows": 3037120,
+      "listings": 7400,
+      "date_min": "2022-09-07",
+      "date_max": "2023-12-31",
+      "pre_rows": 2136020,
+      "post_rows": 901100,
+      "mean_price": 297.13,
+      "median_price": 160.0
+    },
+    {
+      "city": "seattle",
+      "rows": 2606460,
+      "listings": 6823,
+      "date_min": "2022-09-18",
+      "date_max": "2023-12-31",
+      "pre_rows": 1786730,
+      "post_rows": 819730,
+      "mean_price": 189.57,
+      "median_price": 149.0
+    },
+    {
+      "city": "washington-dc",
+      "rows": 2638745,
+      "listings": 6705,
+      "date_min": "2022-09-14",
+      "date_max": "2023-12-31",
+      "pre_rows": 1829305,
+      "post_rows": 809440,
+      "mean_price": 202.87,
+      "median_price": 136.0
+    }
+  ],
+  "bw_1m_rows": 7589765,
+  "bw_1m_pre": 3639177,
+  "bw_1m_post": 3950588,
+  "bw_2m_rows": 15259186,
+  "bw_2m_pre": 7252934,
+  "bw_2m_post": 8006252,
+  "bw_3m_rows": 22573179,
+  "bw_3m_pre": 10642220,
+  "bw_3m_post": 11930959
+}

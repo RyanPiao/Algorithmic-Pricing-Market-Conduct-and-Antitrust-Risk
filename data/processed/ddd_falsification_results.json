@@ -1,0 +1,93 @@
+{
+  "placebo": [
+    {
+      "label": "Minimum nights",
+      "coef": -3.617655,
+      "se": 0.154866,
+      "pval": 0.0,
+      "n_obs": 19046725,
+      "status": "ok"
+    },
+    {
+      "label": "Availability",
+      "coef": 0.042282,
+      "se": 0.00099,
+      "pval": 0.0,
+      "n_obs": 19048478,
+      "status": "ok"
+    }
+  ],
+  "leave_one_out": [
+    {
+      "label": "Drop austin",
+      "coef": -0.003285,
+      "se": 0.000796,
+      "pval": 3.7e-05,
+      "n_obs": 16896549,
+      "status": "ok"
+    },
+    {
+      "label": "Drop boston",
+      "coef": -0.00594,
+      "se": 0.000769,
+      "pval": 0.0,
+      "n_obs": 18444044,
+      "status": "ok"
+    },
+    {
+      "label": "Drop chicago",
+      "coef": -0.003159,
+      "se": 0.000774,
+      "pval": 4.5e-05,
+      "n_obs": 17837130,
+      "status": "ok"
+    },
+    {
+      "label": "Drop los-angeles",
+      "coef": -0.007511,
+      "se": 0.000989,
+      "pval": 0.0,
+      "n_obs": 12908344,
+      "status": "ok"
+    },
+    {
+      "label": "Drop new-york-city",
+      "coef": -0.005677,
+      "se": 0.000945,
+      "pval": 0.0,
+      "n_obs": 13239882,
+      "status": "ok"
+    },
+    {
+      "label": "Drop san-francisco",
+      "coef": -0.005755,
+      "se": 0.000748,
+      "pval": 0.0,
+      "n_obs": 17897510,
+      "status": "ok"
+    },
+    {
+      "label": "Drop seattle",
+      "coef": -0.004403,
+      "se": 0.000775,
+      "pval": 0.0,
+      "n_obs": 18069284,
+      "status": "ok"
+    },
+    {
+      "label": "Drop washington-dc",
+      "coef": -0.0078,
+      "se": 0.000748,
+      "pval": 0.0,
+      "n_obs": 18046603,
+      "status": "ok"
+    }
+  ],
+  "power": {
+    "se": 0.000756,
+    "mde_80_logpts": 0.002118,
+    "mde_80_pct": 0.21,
+    "mde_95_logpts": 0.002725,
+    "mde_95_pct": 0.27
+  }
+}

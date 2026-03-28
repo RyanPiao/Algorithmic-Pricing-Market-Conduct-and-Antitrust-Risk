@@ -1,0 +1,157 @@
+{
+  "density": {
+    "test": "density",
+    "coef_bc": 7641.5927,
+    "se_robust": 552.5325,
+    "pval": 0.0,
+    "status": "ok",
+    "interpretation": "Potential bunching detected"
+  },
+  "covariate_balance": [
+    {
+      "covariate": "Accommodates",
+      "coef": 0.0337,
+      "se_cluster": 0.0019,
+      "pval": 0.0,
+      "status": "ok"
+    },
+    {
+      "covariate": "Bedrooms",
+      "coef": 0.013,
+      "se_cluster": 0.0011,
+      "pval": 0.0,
+      "status": "ok"
+    },
+    {
+      "covariate": "Bathrooms",
+      "coef": 0.013,
+      "se_cluster": 0.0007,
+      "pval": 0.0,
+      "status": "ok"
+    },
+    {
+      "covariate": "Number of reviews",
+      "coef": -2.2985,
+      "se_cluster": 0.0287,
+      "pval": 0.0,
+      "status": "ok"
+    },
+    {
+      "covariate": "Review score",
+      "coef": -0.0016,
+      "se_cluster": 0.0004,
+      "pval": 0.0,
+      "status": "ok"
+    },
+    {
+      "covariate": "Superhost",
+      "coef": -0.0089,
+      "se_cluster": 0.0003,
+      "pval": 0.0,
+      "status": "ok"
+    },
+    {
+      "covariate": "Instant bookable",
+      "coef": 0.0129,
+      "se_cluster": 0.0003,
+      "pval": 0.0,
+      "status": "ok"
+    },
+    {
+      "covariate": "Host listing count",
+      "coef": -0.1832,
+      "se_cluster": 0.0528,
+      "pval": 0.0005,
+      "status": "ok"
+    }
+  ],
+  "placebo_outcomes": [
+    {
+      "outcome": "Minimum nights",
+      "coef": 1.1683,
+      "se_cluster": 0.0536,
+      "pval": 0.0,
+      "status": "ok"
+    },
+    {
+      "outcome": "Calendar availability",
+      "coef": -0.1525,
+      "se_cluster": 0.0012,
+      "pval": 0.0,
+      "status": "ok"
+    }
+  ],
+  "leave_one_out": [
+    {
+      "dropped_city": "austin",
+      "coef": 0.007653,
+      "se_cluster": 0.000199,
+      "pval": 0.0,
+      "n": 20008801,
+      "status": "ok"
+    },
+    {
+      "dropped_city": "boston",
+      "coef": 0.001923,
+      "se_cluster": 0.000211,
+      "pval": 0.0,
+      "n": 21881895,
+      "status": "ok"
+    },
+    {
+      "dropped_city": "chicago",
+      "coef": 0.00188,
+      "se_cluster": 0.000203,
+      "pval": 0.0,
+      "n": 21123504,
+      "status": "ok"
+    },
+    {
+      "dropped_city": "los-angeles",
+      "coef": -0.002321,
+      "se_cluster": 0.000284,
+      "pval": 0.0,
+      "n": 15011947,
+      "status": "ok"
+    },
+    {
+      "dropped_city": "new-york-city",
+      "coef": -0.001098,
+      "se_cluster": 0.000272,
+      "pval": 0.0001,
+      "n": 15884548,
+      "status": "ok"
+    },
+    {
+      "dropped_city": "san-francisco",
+      "coef": 0.002391,
+      "se_cluster": 0.000214,
+      "pval": 0.0,
+      "n": 21272608,
+      "status": "ok"
+    },
+    {
+      "dropped_city": "seattle",
+      "coef": 0.001937,
+      "se_cluster": 0.000215,
+      "pval": 0.0,
+      "n": 21411134,
+      "status": "ok"
+    },
+    {
+      "dropped_city": "washington-dc",
+      "coef": 0.001893,
+      "se_cluster": 0.00021,
+      "pval": 0.0,
+      "n": 21417816,
+      "status": "ok"
+    }
+  ],
+  "power": {
+    "se": 0.000208,
+    "mde_80_logpts": 0.000583,
+    "mde_80_pct": 0.06,
+    "mde_95_logpts": 0.00075,
+    "mde_95_pct": 0.08
+  }
+}

@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Quarto
+.quarto/
+_book/site_libs/
+*.tex
+
+# Data (too large for GitHub)
+data/processed/*.parquet
+data/raw/
+data/merge
+data/2022_data
+data/2023_data
+
+/.quarto/
+**/*.quarto_ipynb

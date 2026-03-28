@@ -1,0 +1,177 @@
+{
+  "pooled": [
+    {
+      "label": "Weeks 38-52 (full)",
+      "var": "year2023",
+      "coef": -0.005377,
+      "se": 0.000756,
+      "ci_lower": -0.006858,
+      "ci_upper": -0.003896,
+      "pval": 0.0,
+      "n_obs": 19048478,
+      "n_clusters": 94832,
+      "r2_within": 0.000209,
+      "status": "ok"
+    },
+    {
+      "label": "Weeks 38-48 (drop Dec)",
+      "var": "year2023",
+      "coef": -0.01615,
+      "se": 0.00082,
+      "ci_lower": -0.017757,
+      "ci_upper": -0.014542,
+      "pval": 0.0,
+      "n_obs": 13795908,
+      "n_clusters": 94832,
+      "r2_within": 0.001986,
+      "status": "ok"
+    },
+    {
+      "label": "Weeks 40-52 (post-only)",
+      "var": "year2023",
+      "coef": -0.004148,
+      "se": 0.000763,
+      "ci_lower": -0.005644,
+      "ci_upper": -0.002652,
+      "pval": 0.0,
+      "n_obs": 16540400,
+      "n_clusters": 94832,
+      "r2_within": 0.000125,
+      "status": "ok"
+    }
+  ],
+  "oct_ddd": [
+    {
+      "label": "Oct 1 DDD (full) [year2023]",
+      "var": "year2023",
+      "coef": -0.01311,
+      "se": 0.000851,
+      "ci_lower": -0.014778,
+      "ci_upper": -0.011443,
+      "pval": 0.0,
+      "n_obs": 19048478,
+      "n_clusters": 94832,
+      "r2_within": 0.000276,
+      "status": "ok"
+    },
+    {
+      "label": "Oct 1 DDD (full) [year2023_x_post_oct1]",
+      "var": "year2023_x_post_oct1",
+      "coef": 0.008896,
+      "se": 0.000522,
+      "ci_lower": 0.007872,
+      "ci_upper": 0.009919,
+      "pval": 0.0,
+      "n_obs": 19048478,
+      "n_clusters": 94832,
+      "r2_within": 0.000276,
+      "status": "ok"
+    }
+  ],
+  "city": [
+    {
+      "label": "austin",
+      "var": "year2023",
+      "coef": -0.02181,
+      "se": 0.002375,
+      "ci_lower": -0.026465,
+      "ci_upper": -0.017155,
+      "pval": 0.0,
+      "n_obs": 2151929,
+      "n_clusters": 10770,
+      "r2_within": 0.001746,
+      "status": "ok"
+    },
+    {
+      "label": "boston",
+      "var": "year2023",
+      "coef": 0.012815,
+      "se": 0.004051,
+      "ci_lower": 0.004875,
+      "ci_upper": 0.020756,
+      "pval": 0.00156,
+      "n_obs": 604434,
+      "n_clusters": 3012,
+      "r2_within": 0.000896,
+      "status": "ok"
+    },
+    {
+      "label": "chicago",
+      "var": "year2023",
+      "coef": -0.039462,
+      "se": 0.003348,
+      "ci_lower": -0.046024,
+      "ci_upper": -0.032899,
+      "pval": 0.0,
+      "n_obs": 1211348,
+      "n_clusters": 6127,
+      "r2_within": 0.006109,
+      "status": "ok"
+    },
+    {
+      "label": "los-angeles",
+      "var": "year2023",
+      "coef": -0.000775,
+      "se": 0.00108,
+      "ci_lower": -0.002892,
+      "ci_upper": 0.001342,
+      "pval": 0.473028,
+      "n_obs": 6140134,
+      "n_clusters": 30675,
+      "r2_within": 7e-06,
+      "status": "ok"
+    },
+    {
+      "label": "new-york-city",
+      "var": "year2023",
+      "coef": -0.004693,
+      "se": 0.001229,
+      "ci_lower": -0.007101,
+      "ci_upper": -0.002284,
+      "pval": 0.000134,
+      "n_obs": 5808596,
+      "n_clusters": 28624,
+      "r2_within": 0.000238,
+      "status": "ok"
+    },
+    {
+      "label": "san-francisco",
+      "var": "year2023",
+      "coef": 0.000425,
+      "se": 0.004554,
+      "ci_lower": -0.008501,
+      "ci_upper": 0.009351,
+      "pval": 0.925569,
+      "n_obs": 1150968,
+      "n_clusters": 5672,
+      "r2_within": 1e-06,
+      "status": "ok"
+    },
+    {
+      "label": "seattle",
+      "var": "year2023",
+      "coef": -0.024129,
+      "se": 0.003393,
+      "ci_lower": -0.030779,
+      "ci_upper": -0.01748,
+      "pval": 0.0,
+      "n_obs": 979194,
+      "n_clusters": 4998,
+      "r2_within": 0.00408,
+      "status": "ok"
+    },
+    {
+      "label": "washington-dc",
+      "var": "year2023",
+      "coef": 0.03856,
+      "se": 0.004915,
+      "ci_lower": 0.028926,
+      "ci_upper": 0.048194,
+      "pval": 0.0,
+      "n_obs": 1001875,
+      "n_clusters": 4954,
+      "r2_within": 0.007412,
+      "status": "ok"
+    }
+  ]
+}

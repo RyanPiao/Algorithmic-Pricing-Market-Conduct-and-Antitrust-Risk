@@ -1,0 +1,85 @@
+{
+  "rdd_estimates": [
+    {
+      "label": "7-day rolling Var(log price)",
+      "coef": 0.007358,
+      "se_cluster": 0.000169,
+      "ci_lower": 0.007027,
+      "ci_upper": 0.007689,
+      "pval": 0.0,
+      "bw": 60,
+      "n_obs": 14851647,
+      "status": "ok"
+    },
+    {
+      "label": "14-day rolling Var(log price)",
+      "coef": 0.009443,
+      "se_cluster": 0.00022,
+      "ci_lower": 0.009012,
+      "ci_upper": 0.009874,
+      "pval": 0.0,
+      "bw": 60,
+      "n_obs": 14806577,
+      "status": "ok"
+    }
+  ],
+  "city_prepost": [
+    {
+      "city": "austin",
+      "pre_var": 0.034241,
+      "post_var": 0.068001,
+      "change": 0.03376,
+      "pct_change": 98.6
+    },
+    {
+      "city": "boston",
+      "pre_var": 0.023254,
+      "post_var": 0.044726,
+      "change": 0.021472,
+      "pct_change": 92.34
+    },
+    {
+      "city": "chicago",
+      "pre_var": 0.045876,
+      "post_var": 0.045404,
+      "change": -0.000472,
+      "pct_change": -1.03
+    },
+    {
+      "city": "los-angeles",
+      "pre_var": 0.011412,
+      "post_var": 0.011121,
+      "change": -0.000291,
+      "pct_change": -2.55
+    },
+    {
+      "city": "new-york-city",
+      "pre_var": 0.012591,
+      "post_var": 0.018198,
+      "change": 0.005608,
+      "pct_change": 44.54
+    },
+    {
+      "city": "san-francisco",
+      "pre_var": 0.016621,
+      "post_var": 0.018911,
+      "change": 0.002289,
+      "pct_change": 13.77
+    },
+    {
+      "city": "seattle",
+      "pre_var": 0.025705,
+      "post_var": 0.026418,
+      "change": 0.000713,
+      "pct_change": 2.77
+    },
+    {
+      "city": "washington-dc",
+      "pre_var": 0.019329,
+      "post_var": 0.032507,
+      "change": 0.013178,
+      "pct_change": 68.18
+    }
+  ],
+  "listing_period_obs": 248361
+}

@@ -1,0 +1,69 @@
+# Empirical Strategy
+
+## Primary Specification: Intent-to-Treat Reduced Form
+
+Our primary specification estimates the intent-to-treat effect of algorithmic pricing tool *availability* on listing prices. The estimand is the reduced-form discontinuity in outcomes at the September 1, 2023 platform-wide rollout date, without requiring data on individual adoption decisions. We estimate:
+
+$$
+\tilde{Y}_{ict} = \alpha + \tau \cdot \mathbf{1}[t \geq c_0] + \beta_1 \cdot r_{t} + \beta_2 \cdot r_{t} \cdot \mathbf{1}[t \geq c_0] + \varepsilon_{ict}, \tag{1}
+$$
+
+where $\tilde{Y}_{ict}$ is the residualized log price for listing $i$ in city $c$ on date $t$ (described below), $c_0$ is the common rollout cutoff (September 1, 2023), $r_{t} = t - c_0$ is the running variable measuring days from the cutoff, and $\mathbf{1}[t \geq c_0]$ is the treatment indicator. The local linear terms $r_{t}$ and $r_{t} \cdot \mathbf{1}[t \geq c_0]$ allow the outcome to trend differently on either side of the cutoff. The coefficient $\tau$ captures the local average discontinuity in residualized prices at the rollout date --- the ITT effect of algorithm availability. City fixed effects are absorbed in the residualization stage (Section 3.2).
+
+Standard errors are clustered at the listing level throughout, following convention for panel RDD designs with repeated observations per unit. We report estimates for bandwidths of ±30, ±45, ±60, and ±90 days around the cutoff.
+
+**Identifying assumption.** Identification requires smoothness: the conditional expectation of potential outcomes $E[Y(0) \mid r]$ is continuous through the cutoff, conditional on seasonal controls. This assumption is substantially weaker than the exclusion restriction required by a fuzzy design, because we do not claim to isolate the effect of individual adoption --- only the market-level effect of making the tool available. The ITT directly answers the policy-relevant question: what happens to market prices when a platform introduces an algorithmic pricing tool?
+
+## Residualization: Removing Seasonal Confounders
+
+Regression discontinuity in time faces a distinctive challenge: seasonal patterns can create spurious jumps at the cutoff [@hausman2018regression]. We address this through two-stage cross-fitted residualization following the flexible covariate adjustment framework of @noack2025flexible.
+
+**Stage 1: Fixed-effect absorption.** We absorb city $\times$ month-of-year and day-of-week fixed effects via iterative group demeaning (Frisch--Waugh--Lovell). This removes city-specific seasonal cycles and weekly periodicity from the outcome without constructing high-dimensional dummy matrices.
+
+**Stage 2: Cross-fitted Ridge regression.** We partition the sample into $K = 5$ folds. For each fold $s$, we train a Ridge regression on out-of-fold data predicting the Stage 1 residual from Fourier harmonics of day-of-year, listing characteristics (accommodates, bedrooms, bathrooms), and holiday indicators. We then subtract the out-of-fold prediction for each observation, producing the final residualized outcome $\tilde{Y}_{ict}$.
+
+The key property of this procedure is that the RDD treatment effect estimator is consistent for $\tau$ regardless of whether the adjustment function is correctly specified [@noack2025flexible, Theorem 1]. Better specification reduces variance and tightens confidence intervals but cannot introduce bias. Cross-fitting prevents overfitting from inflating standard errors. The procedure subsumes the @hausman2018regression augmented approach as a special case (linear adjustment on seasonal dummies) while allowing for nonlinear interactions between city characteristics and seasonal patterns.
+
+## Bandwidth Selection
+
+We report results at four manual bandwidths (±30, ±45, ±60, ±90 days) and at the MSE-optimal bandwidth selected by the @calonico2014robust procedure implemented via `rdrobust`. For the `rdrobust` estimates, we collapse the data to daily means (city-date level) and report bias-corrected robust confidence intervals. The manual-bandwidth OLS estimates use the full listing-day panel with listing-level clustered standard errors.
+
+## Secondary Outcome: Within-Listing Price Variance
+
+If the algorithm enables finer intertemporal price discrimination without shifting average price levels, its footprint should appear in price *variance* rather than price *levels*. Under standard welfare theory, optimal discriminatory prices have the same weighted mean as the optimal uniform price but higher variance across market segments [@hazledine2006price]. @huang2025pricing shows structurally that the welfare-maximizing platform remedy for Airbnb increases within-listing price standard deviation from 4% to 6% while leaving the median level approximately unchanged.
+
+We estimate equation (1) replacing $\tilde{Y}_{ict}$ with the rolling 7-day and 14-day variance of $\log(\text{price})$ within each listing. The `rdrobust` bias-corrected estimates use daily means of the variance measure. The variance outcome is computed from the raw (non-residualized) price series to preserve the economic interpretation. Because the local linear polynomial in the RDD specification absorbs only linear trends in the running variable --- not seasonal fixed effects --- the variance estimates are more exposed to seasonal confounding than the residualized level estimates. The year-over-year DiD on variance (Section 4.5) provides a complementary check that differences out calendar-date-specific seasonality.
+
+## Diagnostics Battery
+
+We implement the following diagnostics to assess the validity of the sharp RDD:
+
+**Density test.** We apply the @cattaneo2020density density test at each city cutoff, checking whether the number of listing-day observations exhibits a discontinuity at the rollout date. A jump would indicate compositional changes (entry or exit) coinciding with the treatment.
+
+**Covariate balance.** We estimate equation (1) replacing the outcome with predetermined listing characteristics (accommodates, bedrooms, bathrooms, number of reviews, review score, superhost status, instant bookable, host listing count). Balanced covariates support the smoothness assumption; any discontinuities in predetermined characteristics would indicate selection.
+
+**Placebo cutoffs.** We re-estimate the primary specification at the same calendar dates in adjacent years, where no rollout occurred. Null effects at placebo dates support the interpretation that any effects at the true cutoff reflect the algorithm rather than calendar-specific seasonality.
+
+**Donut-hole RDD.** We exclude observations within ±7 and ±14 days of the cutoff and re-estimate. This addresses potential anticipation effects or announcement-related confounders in the immediate neighborhood of the rollout.
+
+**Leave-one-city-out.** We re-estimate the pooled specification dropping each city in turn, testing whether results are driven by any single market.
+
+## Year-over-Year Difference-in-Differences Extension
+
+As a complementary design, we construct a year-over-year difference-in-differences estimator. We match observations in the rollout year (2023) to the same calendar week in the preceding year (2022). Absorbing listing and week-of-year fixed effects, the DiD estimate differences out both time-invariant listing characteristics and calendar-specific seasonal patterns. The estimating equation is:
+
+$$
+Y_{it} = \alpha_i + \gamma_w + \tau^{DD} \cdot \text{Year2023}_{t} + \varepsilon_{it}, \tag{2}
+$$
+
+where $\alpha_i$ are listing fixed effects, $\gamma_w$ are week-of-year fixed effects (the same calendar week in both years), and $\text{Year2023}_t$ is an indicator for the rollout year. The coefficient $\tau^{DD}$ captures the average year-over-year change in log prices after absorbing listing heterogeneity and seasonal patterns. The model is estimated via Frisch--Waugh iterative demeaning (equivalent to within estimation) with standard errors clustered at the listing level. We report both full-window and December-excluded specifications, and present an event-study version with weekly coefficients.
+
+## Descriptive Heterogeneity Analysis
+
+To characterize *where* pricing changes concentrate, we construct a listing-level latent sophistication proxy via unsupervised machine learning on strictly pre-treatment pricing behavior.
+
+**Proxy construction.** For each listing, we compute pre-cutoff features: variance of log price, weekend premium (Friday--Saturday versus weekday mean), and frequency of step-to-step price changes. Listings with insufficient pre-period observations receive median-imputed values. We standardize features and estimate KMeans ($k = 4$) and Gaussian mixture models to produce a continuous latent propensity index, normalized to $[0, 1]$.
+
+**Leakage prevention.** All proxy features are computed exclusively on pre-cutoff observations ($\mathbf{1}[t < c_c]$). The proxy captures pre-existing pricing behavior patterns --- not responses to the algorithm.
+
+**Heterogeneous effects.** We stratify listings into quartiles of the latent propensity index and estimate equation (1) separately within each quartile. We report propensity-stratified difference-in-differences models comparing high-propensity (top quartile) to low-propensity (bottom quartile) hosts around the cutoff. This analysis is explicitly descriptive: the proxy is a generated regressor that may capture selection into pricing sophistication rather than differential treatment effects. We implement cross-fitting ($K = 5$ folds) in the proxy construction and bootstrap standard errors with the @murphy1985estimation correction for generated-regressor bias. A pre-trend test for high-propensity hosts guards against interpreting pre-existing divergence as a treatment effect.
