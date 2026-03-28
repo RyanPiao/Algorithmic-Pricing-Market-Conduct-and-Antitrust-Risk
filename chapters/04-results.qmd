@@ -1,10 +1,16 @@
 # Results
 
-## Price Levels: Small, Bandwidth-Sensitive Effects
+## Price Levels: Positive Point Estimates, Not Significant with Proper Inference
 
 @tbl-itt-pooled reports pooled ITT estimates for log prices across bandwidths and specifications. On raw (non-residualized) prices ($Y_{ict}$), estimates are sensitive to bandwidth: positive at ±30 days ($\hat{\tau} = 0.0150$), negative at ±45 days ($-0.0041$), and increasingly negative at wider bandwidths ($-0.0108$ at ±60 days; $-0.0116$ at ±90 days). The sign reversal confirms the seasonal confounding concern raised by @hausman2018regression --- wider bandwidths incorporate more seasonal variation, which dominates the treatment effect.
 
-After residualization, estimates are positive at all bandwidths but decline monotonically: 1.93 percent at ±30 days (N = 7,473,139), 0.95 percent at ±45 days (N = 11,184,927), 0.67 percent at ±60 days (N = 14,896,717), and 0.51 percent at ±90 days (N = 22,228,725). All estimates are statistically significant ($p < 0.001$). The declining pattern admits two interpretations: either the algorithm's effect is genuinely concentrated near the rollout date and dilutes as the bandwidth captures more pre/post-period observations, or residual seasonal confounding inflates the narrow-bandwidth estimates. We cannot definitively distinguish these interpretations, though the robustness checks below help narrow the range.
+After residualization, point estimates are positive at all bandwidths but decline monotonically: 1.93 percent at ±30 days (N = 7,473,139), 0.95 percent at ±45 days (N = 11,184,927), 0.67 percent at ±60 days (N = 14,896,717), and 0.51 percent at ±90 days (N = 22,228,725). With listing-level clustered standard errors, all estimates appear highly significant ($p < 0.001$). However, the relevant unit of independent variation is the *city*, not the listing: all listings within a city share the same cutoff date and the same local market conditions. With only 8 city-level clusters, standard cluster-robust SEs at the listing level severely overstate precision. @tbl-bootstrap reports a wild cluster bootstrap at the city level with 999 Rademacher-weighted iterations (Cameron, Gelbach, and Miller 2008). The bootstrap p-values range from 0.15 to 0.20 across all bandwidths --- **none of the estimates are statistically significant at conventional levels** when inference accounts for the small number of independent clusters.
+
+{{< include ../output/tables/wild_bootstrap.md >}}
+
+: Wild cluster bootstrap results {#tbl-bootstrap}
+
+The bootstrap result transforms the interpretation. The positive point estimates (0.5--1.9%) are consistent with a small genuine effect, but they are also consistent with zero. We cannot reject the null hypothesis that the algorithm had no effect on average price levels. This finding is robust: the balanced-panel specification and minimum-nights control (below) confirm that the point estimates are not artifacts of composition or bundled treatments, but the inference problem remains --- with 8 cities sharing a common cutoff, the design lacks the statistical power to detect effects of this magnitude with confidence.
 
 {{< include ../output/tables/itt_rdd_pooled.md >}}
 
