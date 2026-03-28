@@ -8,26 +8,41 @@ Assistant Teaching Professor of Economics, Northeastern University
 
 ## Abstract
 
-We study the market-level effects of Airbnb's redesigned algorithmic pricing tools across eight major U.S. cities. Using a sharp reduced-form regression discontinuity design exploiting the platform-wide September 2023 rollout, we estimate the intent-to-treat effect of algorithm availability on listing prices and price dispersion. The aggregate price-level effect is small and bandwidth-sensitive: the pooled ITT ranges from 1.9 percent at ±30 days to 0.5 percent at ±90 days --- an order of magnitude below the effects documented in oligopolistic markets. A balanced-panel specification and controls for simultaneous platform policy changes confirm that the result is not driven by compositional shifts or bundled treatments. The RDD finds increased within-listing price variance, but a year-over-year DiD yields the opposite sign, leaving the variance result's robustness uncertain. Pricing changes concentrate among hosts with high pre-existing pricing sophistication, a descriptive pattern consistent with technology-skill complementarity. Together with evidence of algorithmic collusion in gasoline duopolies (Assad et al. 2024), these findings suggest that market structure mediates whether pricing algorithms raise prices or merely alter pricing patterns.
+We study the market-level effects of Airbnb's redesigned algorithmic pricing tools across eight major U.S. cities using a sharp reduced-form regression discontinuity design. Point estimates for the price-level effect are positive in all eight cities (0.5--1.9 percent depending on bandwidth). The sign consistency is statistically significant: a nonparametric sign test rejects zero at the 1% level (p = 0.004). However, a wild cluster bootstrap accounting for only 8 independent city-level clusters yields p-values of 0.15--0.20, and a year-over-year difference-in-differences gives opposite-signed estimates, indicating that the common-cutoff design lacks the precision to reliably quantify the effect's magnitude. The evidence suggests a small positive effect --- substantially below the 38% found in gasoline duopolies (Assad et al. 2024) even after adjusting for intent-to-treat dilution --- but the true effect is bounded between -0.5% and +1.9%, with zero inside the interval.
 
 **JEL codes**: L13, L41, L81, D43, C21
 
-**Keywords**: algorithmic pricing, price discrimination, regression discontinuity, platform markets, Airbnb, technology-skill complementarity
+**Keywords**: algorithmic pricing, price discrimination, regression discontinuity, platform markets, Airbnb
 
 ---
 
 ## Key Results
 
-| Specification | ±30 days | ±45 days | ±60 days | ±90 days |
-|---|---|---|---|---|
-| **Full panel (residualized)** | 1.93%*** | 0.95%*** | 0.67%*** | 0.51%*** |
-| **Balanced panel** | 1.95%*** | 1.08%*** | 0.73%*** | 0.43%*** |
-| **With min-nights control** | 1.91%*** | 0.93%*** | 0.64%*** | 0.48%*** |
-| **Year-over-year DiD** | | | -0.54%*** | |
+### Inference Comparison (±60-day bandwidth, residualized outcome)
 
-- Price effects are positive but small (0.5--1.9%), declining with bandwidth
-- An order of magnitude below the 38% found in gasoline duopolies (Assad et al. 2024)
-- Variance finding is suggestive but not robust across identification strategies (RDD positive, DiD negative)
+| Inference Method | SE | p-value |
+|---|---|---|
+| Listing-clustered (130K clusters) | 0.0007 | 0.000*** |
+| City-clustered analytical (8 clusters) | 0.0061 | 0.276 |
+| **Wild cluster bootstrap (8 cities)** | — | **0.151** |
+| **Sign test (8/8 positive)** | — | **0.004*** |
+| **City-level t-test** | 0.0060 | **0.019** |
+
+### Point Estimates by Bandwidth
+
+| BW | τ (RDD) | p (bootstrap) | p (sign test) |
+|---|---|---|---|
+| ±30d | +1.93% | 0.183 | 0.004 |
+| ±45d | +0.95% | 0.147 | — |
+| ±60d | +0.67% | 0.151 | 0.004 |
+| ±90d | +0.51% | 0.198 | — |
+
+### Bounding Argument
+
+- **RDD upper bound**: +1.9% (narrow bandwidth)
+- **DiD lower bound**: -0.5%
+- **True effect**: ∈ [-0.5%, +1.9%], zero inside
+- **Assad et al. (2024) comparison**: 38% in gasoline duopolies vs. ~3% implied TOT here (~12.5x gap)
 
 ---
 

@@ -48,7 +48,11 @@ We construct a listing-day panel for eight major U.S. cities: Austin, Boston, Ch
 
 ## Summary Statistics
 
-[Table: Summary statistics for the ±3-month estimation sample, reporting means, standard deviations, and percentiles for key variables. To be populated from the processed panel.]
+{{< include ../output/tables/summary_statistics.md >}}
+
+: Summary statistics {#tbl-sumstats}
+
+The median nightly price is \$150 with substantial right skew (mean \$254). The typical listing accommodates 3 guests in 2 bedrooms. Los Angeles and New York City together account for 63% of listings. The median minimum-nights requirement is 25, reflecting a mix of short-term rental listings and longer-stay properties.
 
 ## Data Limitations
 
