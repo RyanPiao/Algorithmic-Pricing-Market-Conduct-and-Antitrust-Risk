@@ -4,6 +4,13 @@
 Assistant Teaching Professor of Economics, Northeastern University
 [richeng.info](https://www.richeng.info/)
 
+### Submission Status
+
+| Journal | Version | Status | Submitted |
+|---|---|---|---|
+| **Economics Letters** | Short communication (7 pages) | Under Review | March 2026 |
+| **Journal of Urban Economics** | Full paper (30+ pages) | Under Review | March 2026 |
+
 ---
 
 ## Abstract
