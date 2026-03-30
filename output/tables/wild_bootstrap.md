@@ -1,11 +1,25 @@
-### Wild Cluster Bootstrap: City-Level Inference (999 iterations)
+### Wild Cluster Bootstrap: City-Level Inference
 
-| BW | τ | SE (listing) | p (listing) | SE (city) | p (city) | p (bootstrap) | N |
-|---:|---:|---:|---:|---:|---:|---:|---:|
-| ±30d | 0.0193 | 0.0006 | 0.0000*** | 0.0179 | 0.2807 | 0.1832 | 7,473,139 |
-| ±45d | 0.0095 | 0.0007 | 0.0000*** | 0.0084 | 0.2584 | 0.1471 | 11,184,927 |
-| ±60d | 0.0067 | 0.0007 | 0.0000*** | 0.0061 | 0.2759 | 0.1512 | 14,896,717 |
-| ±90d | 0.0051 | 0.0008 | 0.0000*** | 0.0052 | 0.3269 | 0.1982 | 22,228,725 |
+Main specification: `log_price_resid = α + τ·post + β₁·x + β₂·x·post + ε`
+within ±60d bandwidth.
 
-Notes: Wild cluster bootstrap with Rademacher weights at city level (8 clusters), 999 iterations, SEED=42.
-Restricted model imposes H₀: τ = 0. Bootstrap p-value from pseudo t-stat distribution.
+**Point estimate:** τ = 0.0067 (0.67% effect on prices)
+
+| Inference Method | SE | t-stat | p-value | Clusters |
+|---|---:|---:|---:|---:|
+| Listing-clustered (analytical) | 0.0007 | 9.276 | 0.0000*** | 130,856 |
+| City-clustered (analytical) | 0.0061 | 1.090 | 0.2759 | 8 |
+| Wild cluster bootstrap (city) | — | — | 0.2472 | 8 |
+
+N = 14,896,717 listing-day observations.
+Wild cluster bootstrap: 999 iterations, Rademacher weights,
+seed = 42.
+
+Bootstrap t-statistic distribution:
+  - Mean: -0.0264
+  - Std:  0.8832
+  - 5th percentile: -1.4472
+  - 95th percentile: 1.5212
+
+Reference: Cameron, Gelbach & Miller (2008), 'Bootstrap-Based
+Improvements for Inference with Clustered Errors', REStat.
