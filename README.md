@@ -6,6 +6,13 @@ Department of Economics, Northeastern University
 
 *Working Paper, March 2026*
 
+### Paper Downloads
+
+| Version | Pages | Journal | Status | PDF |
+|---|---|---|---|---|
+| **Full paper** | 30+ | *Journal of Urban Economics* | Under review | [Download PDF](papers/Piao_2026_Algorithmic_Pricing_Airbnb_Full.pdf) |
+| **Short communication** | 7 | *Economics Letters* | Under review | [Download PDF](papers/Piao_2026_Algorithmic_Pricing_Airbnb_EL.pdf) |
+
 ---
 
 ## Abstract
